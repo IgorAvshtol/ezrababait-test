@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    background: #e0d5d5;
+}
+
+.commentsBlock {
+    height: 70px;
+    overflow-y: scroll;
+}
+
+.inputDataBlock {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}

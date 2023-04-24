@@ -1,0 +1,26 @@
+.container {
+    margin-top: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.linksContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    padding-top: 5px;
+    color: #7a6855;
+}
+
+.linkForFriend {
+    padding-top: 5px;
+    color: green;
+}
