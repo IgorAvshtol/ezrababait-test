@@ -19,6 +19,7 @@ export class UserService {
 
   async create(RegisterDTO: RegisterDTO) {
     const { email } = RegisterDTO;
+    await this.userModel.deleteMany({ friends: undefined });
     const user = await this.userModel.findOne({ email });
     if (user) {
       throw new HttpException('user already exists', HttpStatus.BAD_REQUEST);
@@ -33,7 +34,6 @@ export class UserService {
   async findAll() {
     return this.userModel.find();
   }
-
 
   async delete(id: string) {
     return this.userModel.deleteOne({ _id: new ObjectId(id) });

@@ -16,17 +16,6 @@ export class AuthController {
   ) {
   }
 
-  @Get('/onlyauth')
-  @UseGuards(AuthGuard('jwt'))
-  async hiddenInformation() {
-    return 'hidden information';
-  }
-
-  @Get('/anyone')
-  async publicInformation() {
-    return 'this can be seen by anyone';
-  }
-
   @Post('register')
   async register(@Body() registerDTO: RegisterDTO, @Res({ passthrough: true }) res: Response) {
     const user = await this.userService.create(registerDTO);

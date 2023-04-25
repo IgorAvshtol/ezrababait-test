@@ -9,7 +9,6 @@ import { ActionType, IAddTodoData, IComment, IDeleteTodoData, ITodo } from '@/in
 export const addTodo = (data: IAddTodoData): ThunkAction<void, AppRootState, null, ActionType> => {
   return async (dispatch: Dispatch) => {
     try {
-      console.log(data);
       const response = await todoAPI.addTodo({ ...data, comments: [] });
       const { __v, ...todoData } = response.data;
       dispatch(actions.addTodo(todoData));

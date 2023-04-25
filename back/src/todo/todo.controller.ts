@@ -10,7 +10,6 @@ export class TodoController {
 
   @Post()
   create(@Body() createTodoDto: TodoDTO) {
-    console.log(createTodoDto);
     return this.todosService.create(createTodoDto);
   }
 

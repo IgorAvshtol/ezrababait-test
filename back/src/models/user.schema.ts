@@ -7,7 +7,7 @@ export const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   rank: { type: Number, default: 0 },
   todos: { type: [], ref: 'Todo' },
-  friends: [{ type: String, index: { unique: true } }],
+  friends: [{ type: String }],
 });
 
 UserSchema.pre('save', async function (next: (err?: Error) => void) {
