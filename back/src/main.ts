@@ -6,13 +6,13 @@ import { AppModule } from './app.module';
 const corsOptions: CorsOptions = {
   allowedHeaders: ['origin', 'x-requested-with', 'content-type', 'accept', 'authorization'],
   credentials: true,
-  origin: ['http://localhost:3000'],
+  origin: [process.env.APP_FRONT_URL],
 };
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors(corsOptions);
-  await app.listen(4000);
+  await app.listen(process.env.APP_PORT);
 }
 
 bootstrap();

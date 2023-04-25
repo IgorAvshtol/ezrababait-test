@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -9,7 +10,8 @@ import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://admin:admin@education-app.o4fgg9j.mongodb.net/?retryWrites=true&w=majority'),
+    ConfigModule.forRoot({ envFilePath: '.env' }),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
     UserModule,
     AuthModule,
     TodoModule
